@@ -5,13 +5,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    with:
-      fetch-depth: 0 
+    - uses: actions/checkout@v1
     - run: |
         yarn && yarn build
     - uses: chromaui/action@v1
       with: 
-        fetch-depth: 0 
         projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         token: ${{ secrets.GITHUB_TOKEN }}
